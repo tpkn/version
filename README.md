@@ -2,25 +2,24 @@
 Go cli tool for auto increment app version
 
 
-- Creates a file with a number of current version of the application.
-- Each run, the version increases according to the `-v` setting.
-
-
-
 ## Usage
 
-
 ```shell
-version -v "Mmp" -o "./app.v"
+version -v "Mmp" [-options]
 ```
 
 
-### -v
-**Type**: `string`   
-**Default**: `p`   
+## Options
 
-Increment settings: `M`ajor; `m`inor and `p`atch
+```text
+-v      Increment options: [M]ajor, [m]inor, and [p]atch (default: "p")
+-o      File for storing the version number (default: "./.version")
+-p      Print version to Stdout (default: false)
+--help  Help
+```
 
+
+## Examples
 ```
 -v "Mmp"
 0.0.0 -> 1.1.1
@@ -38,23 +37,3 @@ Increment settings: `M`ajor; `m`inor and `p`atch
 0.0.0 -> 6.10.13
 ```
 
-
-
-### -o
-**Type**: `string`   
-**Default**: `./.version`   
-
-File for storing the version of your app
-
-
-
-## Build example (for Windows)
-
-```
-for /f %%i in ('bin\version.exe') do set VERSION=%%i
-
-set GOOS=windows
-set GOARCH=amd64
-go build -ldflags "-X main.version=%VERSION%" -o "build/app.exe"
-
-```
