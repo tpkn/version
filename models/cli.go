@@ -1,9 +1,8 @@
 package models
 
 type CLI struct {
-	About    string
-	FilePath string
-	Options  string
-	Version  string
-	Verbose  bool
+	IncrementOptions string
+	FilePath         string
+	PrintVersion     bool
+	Help             bool
 }
