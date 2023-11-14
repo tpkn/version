@@ -64,14 +64,18 @@ func main() {
 // changeVersion increases the current version or returns the default one
 func changeVersion(current_version, inc_options string) string {
 	if !isValidVersion(current_version) {
-		current_version = "0.0.0"
+		log.Fatalln("version should match '0.0.0' pattern")
 	}
 	
 	v := models.Version{}
 	
 	parts := strings.Split(current_version, ".")
 	for i := 0; i < 3; i++ {
-		n, _ := strconv.Atoi(parts[i])
+		n, err := strconv.ParseUint(parts[i], 10, 32)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		
 		switch i {
 		case 0:
 			v.Major = n
