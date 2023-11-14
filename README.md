@@ -21,19 +21,42 @@ version -v "Mmp" [-options]
 
 ## Examples
 ```
+-v "M"
+0.0.0 -> 1.0.0
+
+
+-v "m"
+0.0.0 -> 0.1.0
+
+
+-v "p"
+0.0.0 -> 0.0.1
+
+
 -v "Mmp"
 0.0.0 -> 1.1.1
-```
-```
+
+
+-v "mMp"
+0.0.0 -> 1.0.1
+
+
 -v "mmmmp"
 0.0.0 -> 0.4.1
-```
-```
+
+
 -v "Mpppppppppppppp"
 0.0.0 -> 1.0.14
-```
-```
+
+
+-v "ppppppppppppppM"
+0.0.0 -> 1.0.0
+
+
 -v "MMMMMMmmmmmmmmmmppppppppppppp"
-0.0.0 -> 6.10.13
+0.0.0 -> 7.5.13
 ```
+
+
+
 

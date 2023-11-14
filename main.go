@@ -21,18 +21,19 @@ Usage:
   version -v "Mmp" [-options]
 
 Options:
-  -v      Increment options: [M]ajor, [m]inor, and [p]atch (default: "p")
-  -o      File for storing the version number (default: "./.version")
-  -p      Print version to Stdout (default: false)
-  --help  Help
+  -v          Increment options: [M]ajor, [m]inor, and [p]atch (default: "p")
+  -o          File for storing the version number (default: "./.version")
+  -p          Print version (default: false)
+  -h, --help  Help
 `, version)
 
 func main() {
 	cli := models.CLI{}
 	flag.StringVar(&cli.IncrementOptions, "v", "p", "Increment options: [M]ajor, [m]inor, and [p]atch")
 	flag.StringVar(&cli.FilePath, "o", "./.version", "File for storing the version number")
-	flag.BoolVar(&cli.PrintVersion, "p", false, "Print version to Stdout")
-	flag.BoolVar(&cli.Help, "help", false, "Help")
+	flag.BoolVar(&cli.PrintVersion, "p", false, "Print version")
+	flag.BoolVar(&cli.Help, "h", false, "Help")
+	flag.BoolVar(&cli.Help, "help", false, "Alias for --help")
 	flag.Parse()
 	
 	log.SetFlags(0)
@@ -54,14 +55,14 @@ func main() {
 	new_version := changeVersion(current_version, cli.IncrementOptions)
 	utils.WriteFile(cli.FilePath, new_version)
 	
-	// Print version in Stdout
+	// Print new version
 	if cli.PrintVersion {
 		fmt.Print(new_version)
 	}
 }
 
 // changeVersion increases the current version or returns the default one
-func changeVersion(current_version, options string) string {
+func changeVersion(current_version, inc_options string) string {
 	if !isValidVersion(current_version) {
 		current_version = "0.0.0"
 	}
@@ -82,7 +83,7 @@ func changeVersion(current_version, options string) string {
 	}
 	
 	// Change version according to '-v' argument
-	options_list := strings.Split(options, "")
+	options_list := strings.Split(inc_options, "")
 	for _, c := range options_list {
 		switch c {
 		case "M":
