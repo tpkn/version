@@ -10,14 +10,17 @@ type Version struct {
 	Patch int
 }
 
-// IncMajor increments major version
+// IncMajor increments major version, zeroing minor and patch versions
 func (v *Version) IncMajor() {
 	v.Major++
+	v.Minor = 0
+	v.Patch = 0
 }
 
-// IncMinor increments minor version
+// IncMinor increments minor version, zeroing patch version
 func (v *Version) IncMinor() {
 	v.Minor++
+	v.Patch = 0
 }
 
 // IncPatch increments patch version
