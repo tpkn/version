@@ -14,8 +14,9 @@ import (
 )
 
 var version = "0.0.0"
-var help = fmt.Sprintf(`Version, v%v | https://tpkn.me
-Go cli tool for auto increment app version
+var help = fmt.Sprintf(`version (v%v) | https://tpkn.me
+
+Go cli tool for auto incrementing app version
 
 Usage:
   version -v "Mmp" [-options]
@@ -23,15 +24,23 @@ Usage:
 Options:
   -v          Increment options: [M]ajor, [m]inor, and [p]atch (default: "p")
   -o          File for storing the version number (default: "./.version")
-  -p          Print version (default: false)
   -h, --help  Help
+
+Examples:
+  -v "p"
+  0.0.0 -> 0.0.1
+
+  -v "Mmp"
+  0.0.0 -> 1.1.1
+
+  -v "mMp"
+  0.0.0 -> 1.0.1
 `, version)
 
 func main() {
 	cli := models.CLI{}
 	flag.StringVar(&cli.IncrementOptions, "v", "p", "Increment options: [M]ajor, [m]inor, and [p]atch")
 	flag.StringVar(&cli.FilePath, "o", "./.version", "File for storing the version number")
-	flag.BoolVar(&cli.PrintVersion, "p", false, "Print version")
 	flag.BoolVar(&cli.Help, "h", false, "Help")
 	flag.BoolVar(&cli.Help, "help", false, "Alias for --help")
 	flag.Parse()
@@ -54,11 +63,6 @@ func main() {
 	
 	new_version := changeVersion(current_version, cli.IncrementOptions)
 	utils.WriteFile(cli.FilePath, new_version)
-	
-	// Print new version
-	if cli.PrintVersion {
-		fmt.Print(new_version)
-	}
 }
 
 // changeVersion increases the current version or returns the default one

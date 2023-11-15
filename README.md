@@ -1,5 +1,5 @@
 # Version
-Go cli tool for auto increment app version
+Go cli tool for auto incrementing app version
 
 
 ## Usage
