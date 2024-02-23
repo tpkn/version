@@ -14,28 +14,7 @@ import (
 )
 
 var version = "0.0.0"
-var help = fmt.Sprintf(`version (v%v) | https://tpkn.me
-
-Go cli tool for auto incrementing app version
-
-Usage:
-  version -v "Mmp" [-options]
-
-Options:
-  -v          Increment options: [M]ajor, [m]inor, and [p]atch (default: "p")
-  -o          File for storing the version number (default: "./.version")
-  -h, --help  Help
-
-Examples:
-  -v "p"
-  0.0.0 -> 0.0.1
-
-  -v "Mmp"
-  0.0.0 -> 1.1.1
-
-  -v "mMp"
-  0.0.0 -> 1.0.1
-`, version)
+var help = fmt.Sprintf(Help, version)
 
 func main() {
 	cli := models.CLI{}
@@ -75,7 +54,7 @@ func changeVersion(current_version, inc_options string) string {
 	
 	parts := strings.Split(current_version, ".")
 	for i := 0; i < 3; i++ {
-		n, err := strconv.ParseUint(parts[i], 10, 32)
+		n, err := strconv.Atoi(parts[i])
 		if err != nil {
 			log.Fatalln(err)
 		}
@@ -91,8 +70,7 @@ func changeVersion(current_version, inc_options string) string {
 	}
 	
 	// Change version according to '-v' argument
-	options_list := strings.Split(inc_options, "")
-	for _, c := range options_list {
+	for _, c := range strings.Split(inc_options, "") {
 		switch c {
 		case "M":
 			v.IncMajor()

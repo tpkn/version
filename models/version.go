@@ -5,9 +5,9 @@ import (
 )
 
 type Version struct {
-	Major uint64
-	Minor uint64
-	Patch uint64
+	Major int
+	Minor int
+	Patch int
 }
 
 // IncMajor increments major version, zeroing minor and patch versions

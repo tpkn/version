@@ -12,10 +12,9 @@ version -v "Mmp" [-options]
 ## Options
 
 ```text
--v      Increment options: [M]ajor, [m]inor, and [p]atch (default: "p")
--o      File for storing the version number (default: "./.version")
--p      Print version to Stdout (default: false)
---help  Help
+-v          Increment options: [M]ajor, [m]inor, and [p]atch (default: "p")
+-o          File for storing the version number (default: "./.version")
+-h, --help  Help
 ```
 
 
