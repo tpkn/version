@@ -9,7 +9,7 @@
 
 ## Usage
 
-```shell
+```text
 version [-M | -m | -p | -b] [-o]
 ```
 
