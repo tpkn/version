@@ -2,7 +2,7 @@
    <img width="150" src="icon.png" alt="" align="center">
 </p>
 <p align="center">
-   Tool for auto incrementation your app version.
+   Tool for automatic version incrementation.
 </p>
 
 
@@ -20,7 +20,7 @@ version [-M | -m | -p | -b] [-o]
 -M             Increment major version
 -m             Increment minor version
 -p             Increment patch version
--b             Batch increment options: (M)ajor, (m)inor, and (p)atch
+-b             Batch incrementation options: (M)ajor, (m)inor, and (p)atch
 -o             File for storing the version number (default: "./.version")
 -h, --help     Help
 -v, --version  Version
