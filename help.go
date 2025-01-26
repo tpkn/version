@@ -17,21 +17,21 @@ Options:
   -v, --version  Version
 
 Examples:
-  -M
-  0.0.0 -> 1.0.0
+  version -M
+  # 0.0.0 -> 1.0.0
 
-  -m
-  0.0.0 -> 0.1.0
+  version -m
+  # 0.0.0 -> 0.1.0
 
-  -p
-  0.0.0 -> 0.0.1
+  version -p
+  # 0.0.0 -> 0.0.1
 
-  -b "p"
-  0.0.0 -> 0.0.1
+  version -b "p"
+  # 0.0.0 -> 0.0.1
 
-  -b "Mmp"
-  0.0.0 -> 1.1.1
+  version -b "Mmp"
+  # 0.0.0 -> 1.1.1
 
-  -b "mMp"
-  0.0.0 -> 1.0.1
+  version -b "mMp"
+  # 0.0.0 -> 1.0.1
 `
