@@ -14,10 +14,10 @@ var help = fmt.Sprintf(Help, v)
 
 func main() {
 	args := version.Args{}
-	flag.BoolVar(&args.Help, "h", false, "Increment major version")
-	flag.BoolVar(&args.Help, "h", false, "Increment minor version")
-	flag.BoolVar(&args.Help, "h", false, "Increment patch version")
-	flag.StringVar(&args.IncrementOptions, "v", "", "Batch increment options: (M)ajor, (m)inor, and (p)atch")
+	flag.BoolVar(&args.IncrementMajor, "M", false, "Increment major version")
+	flag.BoolVar(&args.IncrementMinor, "m", false, "Increment minor version")
+	flag.BoolVar(&args.IncrementPatch, "p", false, "Increment patch version")
+	flag.StringVar(&args.IncrementOptions, "b", "", "Batch increment options: (M)ajor, (m)inor, and (p)atch")
 	flag.StringVar(&args.FilePath, "o", "./.version", "File for storing the version number")
 	flag.BoolVar(&args.Help, "h", false, "Help")
 	flag.BoolVar(&args.Help, "help", false, "Alias for -h")

@@ -45,7 +45,7 @@ func Update(args *Args) (string, error) {
 	var current_version = "0.0.0"
 	
 	if (args.IncrementMajor || args.IncrementMinor || args.IncrementPatch) && args.IncrementOptions != "" {
-		return "", errors.New("you can't use a targeted version incrementation (-M, -m, -p) and batch incrementation (-v) at the same time")
+		return "", errors.New("you can't use a targeted version incrementation (-M, -m, -p) and batch incrementation (-b) at the same time")
 	}
 	
 	if (args.IncrementMajor && args.IncrementMinor) || (args.IncrementMinor && args.IncrementPatch) || (args.IncrementMajor && args.IncrementPatch) {
@@ -108,7 +108,7 @@ func changeVersion(current_version, options string) (string, error) {
 		}
 	}
 	
-	// Change version according to '-v' argument
+	// Change version according to '-b' argument
 	for _, c := range strings.Split(options, "") {
 		switch c {
 		case "M":
