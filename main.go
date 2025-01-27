@@ -33,6 +33,11 @@ func main() {
 		os.Exit(0)
 	}
 	
+	if args.Version {
+		fmt.Println(v)
+		os.Exit(0)
+	}
+	
 	_, err := version.Update(&args)
 	if err != nil {
 		log.Fatalln(err)
