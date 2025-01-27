@@ -22,51 +22,51 @@ func Test_Update(t *testing.T) {
 	temp_version_path := filepath.Join(t.TempDir(), "version.test")
 	
 	args := &Args{IncrementPatch: true, FilePath: temp_version_path}
-	v, err := Update(args)
+	got, err := Update(args)
 	require.NoError(t, err)
-	require.Equal(t, "0.0.1", v)
+	require.Equal(t, "0.0.1", got)
 	
 	args = &Args{IncrementMinor: true, FilePath: temp_version_path}
-	v, err = Update(args)
+	got, err = Update(args)
 	require.NoError(t, err)
-	require.Equal(t, "0.1.0", v)
+	require.Equal(t, "0.1.0", got)
 	
 	args = &Args{IncrementMajor: true, FilePath: temp_version_path}
-	v, err = Update(args)
+	got, err = Update(args)
 	require.NoError(t, err)
-	require.Equal(t, "1.0.0", v)
+	require.Equal(t, "1.0.0", got)
 	
 	args = &Args{IncrementPatch: true, FilePath: temp_version_path}
-	v, err = Update(args)
+	got, err = Update(args)
 	require.NoError(t, err)
-	require.Equal(t, "1.0.1", v)
+	require.Equal(t, "1.0.1", got)
 	
 	args = &Args{IncrementOptions: "M", FilePath: temp_version_path}
-	v, err = Update(args)
+	got, err = Update(args)
 	require.NoError(t, err)
-	require.Equal(t, "2.0.0", v)
+	require.Equal(t, "2.0.0", got)
 	
 	temp_version_path = filepath.Join(t.TempDir(), "version.test")
 	
 	args = &Args{IncrementOptions: "MMM", FilePath: temp_version_path}
-	v, err = Update(args)
+	got, err = Update(args)
 	require.NoError(t, err)
-	require.Equal(t, "3.0.0", v)
+	require.Equal(t, "3.0.0", got)
 	
 	args = &Args{IncrementOptions: "MMMppp", FilePath: temp_version_path}
-	v, err = Update(args)
+	got, err = Update(args)
 	require.NoError(t, err)
-	require.Equal(t, "6.0.3", v)
+	require.Equal(t, "6.0.3", got)
 	
 	args = &Args{IncrementOptions: "mmm", FilePath: temp_version_path}
-	v, err = Update(args)
+	got, err = Update(args)
 	require.NoError(t, err)
-	require.Equal(t, "6.3.0", v)
+	require.Equal(t, "6.3.0", got)
 	
 	args = &Args{IncrementOptions: "mmmM", FilePath: temp_version_path}
-	v, err = Update(args)
+	got, err = Update(args)
 	require.NoError(t, err)
-	require.Equal(t, "7.0.0", v)
+	require.Equal(t, "7.0.0", got)
 }
 
 func Test_changeVersion(t *testing.T) {
