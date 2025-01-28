@@ -2,9 +2,12 @@
    <img width="150" src="icon.png" alt="" align="center">
 </p>
 <p align="center">
-   Tool for automatic version incrementation.
+   A tool for easy version incrementation.
 </p>
 
+
+
+Upon the first launch in a new project, the application creates a `.version` file (any filename can be specified using the `-o` flag) in which the version `0.0.0` is recorded. If the project already contains a version file, the it will update the version number in it.
 
 
 ## Usage
