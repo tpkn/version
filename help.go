@@ -2,7 +2,7 @@ package main
 
 const Help = `version (v%v) | https://tpkn.me
 
-Tool for automatic version incrementation.
+A tool for easy version incrementation.
 
 Usage:
   version [-M | -m | -p | -b] [-o]
