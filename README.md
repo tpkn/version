@@ -7,7 +7,7 @@
 
 
 
-Upon the first launch in a new project, the application creates a `.version` file (any filename can be specified using the `-o` flag) in which the version `0.0.0` is recorded. If the project already contains a version file, the it will update the version number in it.
+Upon the first launch in a new project, the application creates a `.version` file (any filename can be specified using the `-o` flag) in which the version `0.0.0` is recorded. If the project already contains a version file, it will update the version number in it.
 
 
 ## Usage
